@@ -1,53 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - My Project</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="#">My Project</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <style>
+        /* Apply the Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Simple animation for elements to fade in and slide up */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+<nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-sm shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <div class="flex-shrink-0">
+                <a class="text-2xl font-bold text-slate-900" href="#">My Project</a>
+            </div>
+            <div class="hidden md:flex md:items-center md:space-x-8">
+                <a href="{% url 'create' %}" class="text-slate-600 hover:text-indigo-600 transition-colors">Create</a>
+                <a href="#" class="text-slate-600 hover:text-indigo-600 transition-colors">Features</a>
+                <a href="#" class="text-slate-600 hover:text-indigo-600 transition-colors">About</a>
+            </div>
+            <div class="hidden md:block">
+                 <a href="{% url 'login' %}" class="inline-block bg-indigo-600 text-white px-5 py-2 rounded-lg text-sm font-semibold shadow-lg hover:bg-indigo-700 transition-transform transform hover:-translate-y-0.5">
+                    Go to Login
+                </a>
+            </div>
+            <div class="md:hidden flex items-center">
+                <button class="text-slate-600 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
     </div>
 </nav>
 
-<header class="bg-primary text-white text-center py-5">
-    <div class="container">
-        <h1>Welcome to My Project</h1>
-        <p class="lead">This is a stylish homepage built with Bootstrap</p>
-        <a href="{% url 'login' %}" class="btn btn-light btn-lg mt-3"> Go to Login</a>
+<header class="bg-gradient-to-br from-slate-900 to-slate-800 text-white text-center">
+    <div class="max-w-4xl mx-auto px-4 py-24 sm:py-32 animate-fadeInUp">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">Welcome to My Modern Project</h1>
+        <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-300">A demonstration of a sleek, modern, and animated interface built with Tailwind CSS.</p>
+        <div class="mt-8 flex justify-center gap-4">
+             <a href="{% url 'login' %}" class="inline-block bg-indigo-500 text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-lg hover:bg-indigo-400 transition-all transform hover:scale-105">
+                Get Started
+            </a>
+            <a href="#features" class="inline-block bg-transparent text-slate-200 ring-1 ring-slate-300 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-slate-700 transition-all">
+                Learn More
+            </a>
+        </div>
     </div>
 </header>
 
-<div class="container my-5">
-    <div class="row text-center">
-        <div class="col-md-4">
-            <div class="card shadow-sm p-3">
-                <h3>Create/add</h3>
-                <div class="container">
+<main id="features" class="max-w-7xl mx-auto my-20 sm:my-24 px-4 sm:px-6 lg:px-8">
+    <div class="text-center animate-fadeInUp" style="animation-delay: 200ms;">
+        <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Everything You Need</h2>
+        <p class="mt-4 text-lg text-slate-600">Powerful features to help you build and manage your projects.</p>
+    </div>
 
-                    <a href="{% url 'create' %}" class="btn btn-light btn-lg mt-3"> Go to Create page</a>
-                </div>
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div class="bg-white shadow-lg p-8 rounded-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 animate-fadeInUp" style="animation-delay: 400ms;">
+            <div class="flex items-center justify-center h-12 w-12 rounded-full bg-indigo-100 text-indigo-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+            </div>
+            <h3 class="mt-6 text-xl font-semibold text-slate-900">Create & Add</h3>
+            <p class="mt-2 text-slate-600">Easily add new items to your project with our streamlined creation process.</p>
+             <div class="mt-6">
+                <a href="{% url 'create' %}" class="font-semibold text-indigo-600 hover:text-indigo-500">Go to Create page &rarr;</a>
             </div>
         </div>
 
-    </div>
-</div>
+        <div class="bg-white shadow-lg p-8 rounded-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 animate-fadeInUp" style="animation-delay: 600ms;">
+            <div class="flex items-center justify-center h-12 w-12 rounded-full bg-indigo-100 text-indigo-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4M4 7v4c0 2.21 3.582 4 8 4s8-1.79 8-4V7" />
+                </svg>
+            </div>
+            <h3 class="mt-6 text-xl font-semibold text-slate-900">Manage Data</h3>
+            <p class="mt-2 text-slate-600">A powerful dashboard for viewing, editing, and managing all your entries.</p>
+            <div class="mt-6">
+                <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">View Dashboard &rarr;</a>
+            </div>
+        </div>
 
-<footer class="bg-dark text-white text-center py-3">
-    <p class="mb-0">© 2025 My Project. All rights reserved.</p>
+        <div class="bg-white shadow-lg p-8 rounded-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 animate-fadeInUp" style="animation-delay: 800ms;">
+            <div class="flex items-center justify-center h-12 w-12 rounded-full bg-indigo-100 text-indigo-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+            </div>
+            <h3 class="mt-6 text-xl font-semibold text-slate-900">Secure & Reliable</h3>
+            <p class="mt-2 text-slate-600">Your data is protected with industry-standard security protocols.</p>
+            <div class="mt-6">
+                <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Read about security &rarr;</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="bg-slate-800 text-slate-400">
+    <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center">
+        <p class="m-0 text-sm">© 2025 My Project. All rights reserved.</p>
+        <p class="mt-2 text-xs">Built with <span class="text-red-400">&hearts;</span> and Tailwind CSS.</p>
+    </div>
 </footer>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
